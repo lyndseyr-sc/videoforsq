@@ -17,32 +17,58 @@
       color: #222222;
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
       line-height: 1.6;
-      padding: 40px 20px;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
+    /* 첫 화면 (표지 이미지) */
+    #cover-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      cursor: pointer;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .main-banner {
-      display: block;
+    .cover-image {
       width: 100%;
       max-width: 480px;
       height: auto;
-      margin: 0 auto 28px;
       border-radius: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    #cover-screen:hover .cover-image {
+      transform: scale(1.01);
+    }
+
+    /* 영상 목록 화면 (처음엔 숨김) */
+    #archive-screen {
+      display: none;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* 이미지가 채워진 제목 배너 */
+    header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 48px;
+      padding: 72px 24px;
+      border-radius: 16px;
+      overflow: hidden;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('./mainimage1.png');
+      background-size: cover;
+      background-position: center;
     }
 
     h1 {
       font-size: 2rem;
       font-weight: 700;
-      color: #111111;
+      color: #FFFFFF;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
 
     .video-grid {
@@ -92,9 +118,20 @@
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- 1. 첫 화면: 이미지만 표시 (클릭 시 목록으로 이동) -->
+  <div id="cover-screen" onclick="openArchive()">
+    <img 
+      src="./mainimage1.png" 
+      onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='./mainimage1.PNG';}"
+      alt="두두와 페피가 함께 배우는 링키지랩 윤리규정 (클릭해서 입장)" 
+      class="cover-image"
+    >
+  </div>
+
+  <!-- 2. 영상 목록 화면 -->
+  <div id="archive-screen">
     <header>
-      <img src="mainimage1.png" alt="두두와 페피가 함께 배우는 링키지랩 윤리규정" class="main-banner">
       <h1>스낵큐레이션 교육영상자료 아카이브</h1>
     </header>
 
@@ -103,7 +140,7 @@
       <article class="video-card">
         <div class="video-wrapper">
           <video controls playsinline preload="metadata">
-            <source src="video_1.mp4" type="video/mp4">
+            <source src="./video_1.mp4" type="video/mp4">
             브라우저가 비디오 재생을 지원하지 않습니다.
           </video>
         </div>
@@ -114,5 +151,13 @@
       </article>
     </main>
   </div>
+
+  <script>
+    function openArchive() {
+      document.getElementById('cover-screen').style.display = 'none';
+      document.getElementById('archive-screen').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
