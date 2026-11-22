@@ -1,1 +1,109 @@
 # videoforsq
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스낵큐레이션 교육영상자료 아카이브</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #FFFDF0; /* 파스텔 노랑 배경 */
+      color: #222222;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .video-card {
+      background-color: #FFFFFF;
+      border: 1px solid #EAE4C8;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 비율 */
+      height: 0;
+      background-color: #000000;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-info {
+      padding: 20px;
+    }
+
+    .video-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111111;
+    }
+
+    .video-desc {
+      font-size: 1rem;
+      color: #444444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>스낵큐레이션 교육영상자료 아카이브</h1>
+    </header>
+
+    <main class="video-grid">
+      <!-- 영상 카드 1 -->
+      <article class="video-card">
+        <div class="video-wrapper">
+          <video controls playsinline preload="metadata">
+            <source src="video_1.mp4" type="video/mp4">
+            브라우저가 비디오 재생을 지원하지 않습니다.
+          </video>
+        </div>
+        <div class="video-info">
+          <h2 class="video-title">소중한 회사의 자산 지키기</h2>
+          <p class="video-desc">회사 물건을 개인적으로 쓰지 않고, 고장 나거나 잃어버리지 않게 잘 관리하는 방법을 알아봅니다.</p>
+        </div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
