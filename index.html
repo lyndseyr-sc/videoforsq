@@ -17,42 +17,26 @@
       color: #222222;
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
       line-height: 1.6;
-      min-height: 100vh;
+      padding: 40px 20px;
     }
 
-    /* 첫 화면 (표지 이미지) */
-    #cover-screen {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-      cursor: pointer;
-    }
-
-    .cover-image {
-      width: 100%;
-      max-width: 480px;
-      height: auto;
-      border-radius: 16px;
-      transition: transform 0.2s ease;
-    }
-
-    #cover-screen:hover .cover-image {
-      transform: scale(1.01);
-    }
-
-    /* 영상 목록 화면 (처음엔 숨김) */
-    #archive-screen {
-      display: none;
+    .container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 40px 20px;
     }
 
     header {
       text-align: center;
       margin-bottom: 48px;
+    }
+
+    .main-banner {
+      display: block;
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      margin: 0 auto 28px;
+      border-radius: 16px;
     }
 
     h1 {
@@ -108,15 +92,9 @@
   </style>
 </head>
 <body>
-
-  <!-- 1. 첫 화면: 이미지만 표시 (클릭 시 목록으로 이동) -->
-  <div id="cover-screen" onclick="openArchive()">
-    <img src="mainimage1.png" alt="두두와 페피가 함께 배우는 링키지랩 윤리규정" class="cover-image">
-  </div>
-
-  <!-- 2. 영상 목록 화면 -->
-  <div id="archive-screen">
+  <div class="container">
     <header>
+      <img src="mainimage1.png" alt="두두와 페피가 함께 배우는 링키지랩 윤리규정" class="main-banner">
       <h1>스낵큐레이션 교육영상자료 아카이브</h1>
     </header>
 
@@ -136,13 +114,5 @@
       </article>
     </main>
   </div>
-
-  <script>
-    function openArchive() {
-      document.getElementById('cover-screen').style.display = 'none';
-      document.getElementById('archive-screen').style.display = 'block';
-    }
-  </script>
-
 </body>
 </html>
